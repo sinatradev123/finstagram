@@ -3,7 +3,7 @@ USER gitpod
 
 # Install the Ruby version specified in '.ruby-version'
 COPY --chown=gitpod:gitpod .ruby-version /tmp
-RUN RUBY_VERSION="ruby-$(cat /tmp/.ruby-version)" \
+RUN RUBY_VERSION=ruby-2.7.6 \
     && printf "rvm_gems_path=/home/gitpod/.rvm\n" > ~/.rvmrc \
     && bash -lc "rvm reinstall ${RUBY_VERSION} && \
                  rvm use ${RUBY_VERSION} --default" \
